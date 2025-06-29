@@ -1,0 +1,29 @@
+import Container from "../global/Container";
+import Logo from "./Logo";
+import LinksDropdown from "./LinksDropdown";
+import CartButton from "./CartButton";
+import ModeToggle from "./DarkMode";
+import NavSearch from "./NavSearch";
+import SignOutLink from "./SignOutLink";
+import { Suspense } from "react";
+
+function Navbar() {
+  return (
+    <nav className="border-b">
+      <Container className="flex flex-col sm:flex-row sm:justify-between sm: items-center sm:flex-wrap py-8">
+        <Logo />
+        <Suspense>
+          <NavSearch />
+        </Suspense>
+
+        <div className="flex gap-4 items-center">
+          <CartButton />
+          <ModeToggle />
+          <LinksDropdown />
+        </div>
+      </Container>
+    </nav>
+  );
+}
+
+export default Navbar;
